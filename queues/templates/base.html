@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>SmartQueue</title>
+    <title>SmartQueue {% if title != None %} - {{ title }}{% endif %}</title>
     <!-- Favicon-->
     <link rel="icon" href="{% static 'bsb/favicon.ico' %}" type="image/x-icon">
 
@@ -22,12 +22,19 @@
 
     <!-- Animation Css -->
     <link href="{% static 'bsb/plugins/animate-css/animate.css' %}" rel="stylesheet" />
+    
+    <!-- Bootstrap Select Css -->
+    <link href="{% static 'bsb/plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="{% static 'bsb/css/style.min.css' %}" rel="stylesheet">
 
     <!-- Theme -->
     <link href="{% static 'bsb/css/themes/theme-blue-grey.min.css' %}" rel="stylesheet" />
+    
+    <!-- Page custom css -->
+    <link href="{% static 'bsb/css/app.css' %}" rel="stylesheet">
+
 </head>
 
 <body class="theme-blue-grey">
@@ -56,7 +63,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{% url 'index' %}">SMARTQUEUE TRENDS PREDICTION SYSTEM</a>
+                <a class="navbar-brand" href="{% url 'index' %}">SMARTQUEUE</a>
             </div>
         </div>
     </nav>
@@ -72,7 +79,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">SMART QUEUE</li>
+                    <li class="header">TRENDS PREDICTION SYSTEM</li>
                     <li class="active">
                         <a href="{% url 'index' %}">
                             <i class="material-icons">home</i>
@@ -105,7 +112,11 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>DASHBOARD</h2>
+                {% if title != None %}
+                    <h2>{{ title|upper }}</h2>
+                {% else %}
+                    <h2>SMARTQUEUE</h2>
+                {% endif %}
             </div>
             <div class="row clearfix">
                 <div class="col-lg-12">
@@ -132,11 +143,14 @@
     <!-- Waves Effect Plugin Js -->
     <script src="{% static 'bsb/plugins/node-waves/waves.js' %}"></script>
 
+    <!-- Chart Plugins Js -->
+    <script src="{% static 'bsb/plugins/chartjs/Chart.bundle.js' %}"></script>
+
     <!-- Custom Js -->
     <script src="{% static 'bsb/js/admin.js' %}"></script>
 
     <!-- Demo Js -->
-    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'bsb/js/app.js' %}"></script>
 </body>
 
 </html>
