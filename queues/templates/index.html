@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-   
+
+<div class="block-header">
+	<h2>TODAY</h2>
+</div>
+
 <div class="row clearfix">
     <div class="col-sm-4">
         <div class="info-box hover-zoom-effect">
@@ -37,9 +41,11 @@
         </div>
     </div>
 </div>
+
 <div class="block-header">
 	<h2>THIS WEEK</h2>
 </div>
+
 <div class="row">
 	<div class="col-md-8">
 		<div class="card">
@@ -49,10 +55,10 @@
 				        <h2>WEEKLY QUEUE NUMBERS</h2>
 		    		</div>
 		    		<div class="col-sm-6 align-right p-t-5">
-	    				<select class="show-tick">
+	    				<select name="service" class="show-tick">
 	    				    <option value="all">All Services</option>
 	    				    <option value="id">ID application</option>
-	    				    <option value="nhif">NHIF Registration</option>
+						    <option value="nssf">NSSF Member Registration</option>
 	    				    <option value="gen">General Enquiry</option>
 	    				</select>
 		    		</div>
@@ -62,7 +68,7 @@
 		    <div class="body">
 		        <canvas id="weekly-trends-chart" height="150"></canvas>
 		        <div class="m-t-10">
-			        <a href="{% url 'index' %}" title="More predictions" class="btn bg-blue-grey btn-lg">MORE PREDICTIONS</a>
+			        <a href="{% url 'predictions' %}" title="More predictions" class="btn bg-blue-grey btn-lg">MORE PREDICTIONS</a>
 		        </div>
 		    </div>
 		</div>

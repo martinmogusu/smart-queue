@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="block-header">
+	<h2>PREDICTIONS</h2>
+</div>
+<div class="card">
+	<div class="header" style="padding-bottom: 0 !important">
+		<div class="row clearfix">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>RANGE: </label>
+					<select name="date_range" class="form-control show-tick">
+						<option value="today">1 Day</option>
+						<option value="week">1 Week</option>
+						<option value="month">1 Month</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>SERVICE: </label>
+					<select name="service" class="form-control show-tick">
+					    <option value="all">All Services</option>
+					    <option value="id">National ID application</option>
+					    <option value="nssf">NSSF Member Registration</option>
+					    <option value="gen">General Enquiry</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="body">
+		<div class="align-center">
+			<div class="m-b-5">
+				<a href="javascript:void()" title="This month" class="btn btn-link waves-effect">This month (July)</a>
+			</div>
+			<ul class="pagination m-t-0 m-b-0">
+				<li>
+					<a class="waves-effect" href="javascript:void()" title="Previous"><i class="material-icons">chevron_left</i></a>
+				</li>
+				<li class="disabled">
+					<a href="javascript:void()" style="cursor: default; color: #555;">June 2018</a>
+				</li>
+				<li>
+					<a class="waves-effect" href="javascript:void()" title="Next"><i class="material-icons">chevron_right</i></a>
+				</li>
+			</ul>
+		</div>
+        <canvas id="weekly-trends-chart" height="150"></canvas>
+	</div>
+</div>
+
+{% endblock %}
